@@ -513,7 +513,7 @@ function print_lunch_menu()
     done | column
 
     if [ "z${DESO_DEVICES_ONLY}" != "z" ]; then
-       echo "... and don't forget the bacon!"
+       echo "... and don't forget to desolate!"
     fi
 
     echo
@@ -523,9 +523,9 @@ function brunch()
 {
     breakfast $*
     if [ $? -eq 0 ]; then
-        mka bacon
+        mka deso
     else
-        echo "No such item in brunch menu. Try 'breakfast'"
+        echo "No such item in the desolated menu. Try 'breakfast'"
         return 1
     fi
     return $?
@@ -1701,7 +1701,7 @@ function cmka() {
     if [ ! -z "$1" ]; then
         for i in "$@"; do
             case $i in
-                bacon|otapackage|systemimage)
+                deso|otapackage|systemimage)
                     mka installclean
                     mka $i
                     ;;
