@@ -80,13 +80,56 @@ $(info   TARGET_BUILD_TYPE=$(TARGET_BUILD_TYPE))
 $(info   TARGET_ARCH=$(TARGET_ARCH))
 $(info   TARGET_ARCH_VARIANT=$(TARGET_ARCH_VARIANT))
 $(info   TARGET_CPU_VARIANT=$(TARGET_CPU_VARIANT))
-$(info =======================================================)
+$(info   TARGET_2ND_ARCH=$(TARGET_2ND_ARCH))
+$(info   TARGET_2ND_ARCH_VARIANT=$(TARGET_2ND_ARCH_VARIANT))
+$(info   TARGET_2ND_CPU_VARIANT=$(TARGET_2ND_CPU_VARIANT))
+ifdef TARGET_GCC_VERSION_ARM
+$(info   TARGET_GCC_VERSION=$(TARGET_GCC_VERSION_ARM))
+else ifdef TARGET_GCC_VERSION_ARM64
+$(info   TARGET_GCC_VERSION=$(TARGET_GCC_VERSION_ARM64))
+else
 $(info   TARGET_GCC_VERSION=$(TARGET_GCC_VERSION))
+endif
 $(info   TARGET_NDK_GCC_VERSION=$(TARGET_NDK_GCC_VERSION))
+ifdef    CLANG_O3
+$(info   CLANG_O3=$(CLANG_O3))
+else
+$(info   CLANG_O3=false)
+endif
+ifdef    STRICT_ALIASING
+$(info   STRICT_ALIASING=$(STRICT_ALIASING))
+else     
+$(info   STRICT_ALIASING=false)
+endif
+ifdef    KRAIT_TUNINGS
+$(info   KRAIT_TUNINGS=$(KRAIT_TUNINGS))
+else
+$(info   KRAIT_TUNINGS=false)
+endif
+ifdef    ENABLE_GCCONLY
+$(info   ENABLE_GCCONLY=$(ENABLE_GCCONLY))
+else     
+$(info   ENABLE_GCCONLY=false)
+endif
+ifdef    GRAPHITE_OPTS
+$(info   GRAPHITE_OPTS=$(GRAPHITE_OPTS))
+else     
+$(info   GRAPHITE_OPTS=false)
+endif
 ifdef TARGET_GCC_VERSION_ARM
 $(info   TARGET_KERNEL_TOOLCHAIN=$(TARGET_GCC_VERSION_ARM))
 else
 $(info   TARGET_KERNEL_TOOLCHAIN=$(TARGET_GCC_VERSION))
+endif
+$(info   HOST_ARCH=$(HOST_ARCH))
+$(info   HOST_OS=$(HOST_OS))
+$(info   HOST_OS_EXTRA=$(HOST_OS_EXTRA))
+$(info   HOST_BUILD_TYPE=$(HOST_BUILD_TYPE))
+$(info   BUILD_ID=$(BUILD_ID))
+$(info   OUT_DIR=$(OUT_DIR))
+ifeq ($(CYNGN_TARGET),true)
+$(info   CYNGN_TARGET=$(CYNGN_TARGET))
+$(info   CYNGN_FEATURES=$(CYNGN_FEATURES))
 endif
 $(info =======================================================)
 endif
