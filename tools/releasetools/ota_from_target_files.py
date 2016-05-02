@@ -612,16 +612,17 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("Target: %s" % CalculateFingerprint(
       oem_props, oem_dict, OPTIONS.info_dict))
 
-  script.Print("************************************************");
-  script.Print("************************************************");
-  script.Print("   /  ]/    |    \|   \ |  |  |/ ___/    |  |  |");
-  script.Print("  /  /|  o  |  _  |    \|  |  (   \_ |  ||  |  |");
-  script.Print(" /  / |     |  |  |  D  |  ~  |\__  ||  ||_   _|");
-  script.Print("/   \_|  _  |  |  |     |___, |/  \ ||  ||     |");
-  script.Print("\     |  |  |  |  |     |     |\    ||  ||  |  |");
-  script.Print(" \____|__|__|__|__|_____|____/  \___|____|__|__|");
-  script.Print("************************************************");
-  script.Print("************************************************");
+  script.Print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+  script.Print("                                          ")
+  script.Print("                 Lets Get                 ")
+  script.Print("      ___             _                   ")
+  script.Print("     ( / \           //     _/_      /    ")
+  script.Print("      /  /_  (   __ // __,  /  _  __/     ")
+  script.Print("    (/\_/(/_/_)_(_)(/_(_/(_(__(/_(_/_     ")
+  script.Print("                                          ")
+  script.Print("         Welcome to DesolationRom         ")
+  script.Print("                                          ")
+  script.Print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
 
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
   device_specific.FullOTA_InstallBegin()
@@ -763,7 +764,7 @@ endif;
   common.ZipWriteStr(output_zip, "system/build.prop",
                      ""+input_zip.read("SYSTEM/build.prop"))
 
-  common.ZipWriteStr(output_zip, "META-INF/org/candy/releasekey",
+  common.ZipWriteStr(output_zip, "META-INF/org/deso/releasekey",
                      ""+input_zip.read("META/releasekey.txt"))
 
 def WritePolicyConfig(file_name, output_zip):

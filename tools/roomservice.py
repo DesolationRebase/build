@@ -42,11 +42,11 @@ except ImportError:
 DEBUG = False
 default_manifest = ".repo/manifest.xml"
 
-custom_local_manifest = ".repo/local_manifests/candy_manifest.xml"
+custom_local_manifest = ".repo/local_manifests/deso_manifest.xml"
 custom_default_revision = "mm6.0"
-custom_dependencies = "candy.dependencies"
-org_manifest = "CANDY"  # leave empty if org is provided in manifest
-org_display = "CANDY"  # needed for displaying
+custom_dependencies = "deso.dependencies"
+org_manifest = "DesolationRom-Devices"  # leave empty if org is provided in manifest
+org_display = "DesolationRom-Devices"  # needed for displaying
 
 github_auth = None
 

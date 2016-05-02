@@ -179,9 +179,9 @@ include $(BUILD_SYSTEM)/node_fns.mk
 include $(BUILD_SYSTEM)/product.mk
 include $(BUILD_SYSTEM)/device.mk
 
-# A CANDY build needs only the CANDY product makefiles.
-ifneq ($(CANDY_BUILD),)
-  all_product_configs := $(shell find device -path "*/$(CANDY_BUILD)/candy.mk")
+# A DESO build needs only the DESO product makefiles.
+ifneq ($(DESO_BUILD),)
+  all_product_configs := $(shell find device -path "*/$(DESO_BUILD)/deso.mk")
 else
   ifneq ($(strip $(TARGET_BUILD_APPS)),)
   # An unbundled app build needs only the core product makefiles.
@@ -192,9 +192,9 @@ else
     # files in the tree.
     all_product_configs := $(get-all-product-makefiles)
   endif # TARGET_BUILD_APPS
-endif # CANDY_BUILD
+endif # DESO_BUILD
 
-ifeq ($(CANDY_BUILD),)
+ifeq ($(DESO_BUILD),)
 # Find the product config makefile for the current product.
 # all_product_configs consists items like:
 # <product_name>:<path_to_the_product_makefile>
