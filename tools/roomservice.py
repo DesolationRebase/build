@@ -322,8 +322,7 @@ def main():
         if repo_path:
             fetch_dependencies(repo_path)
         else:
-            print("Trying dependencies-only mode on a"
-                  "non-existing device tree?")
+            print("")
         sys.exit()
 
     print("Device {0} not found. Attempting to retrieve device repository from "
