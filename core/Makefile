@@ -1882,7 +1882,7 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
 
 DESO_TARGET_PACKAGE := $(PRODUCT_OUT)/$(DESO_MOD_VERSION).zip
 
-.PHONY: otapackage deso bootzip
+.PHONY: otapackage deso otarelease bootzip
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 deso: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(DESO_TARGET_PACKAGE)
@@ -1900,6 +1900,10 @@ deso: otapackage
 	@echo -e ${CL_CYN}" ░                                                                                "${CL_CYN}
 	@echo -e ${CL_CYN}""${CL_CYN}
 	@echo -e ${CL_CYN}"Package Complete: $(DESO_TARGET_PACKAGE)"${CL_RST}
+
+otarelease: deso
+	$(hide) ./vendor/deso/tools/delta.sh
+	@echo -e ${CL_CYN}"Published OTAs and Builds for: $(DESO_TARGET_PACKAGE)"${CL_RST}
 
 bootzip: bootimage
 	$(BOOT_ZIP_FROM_IMAGE_SCRIPT) \
